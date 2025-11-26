@@ -75,7 +75,6 @@
         }
 
         .product-grid {
-            /* Улучшенный грид для лучшего заполнения экрана */
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
             gap: 30px;
@@ -92,7 +91,6 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
             cursor: pointer;
             position: relative;
-            /* Flexbox для правильного выравнивания кнопок */
             display: flex;
             flex-direction: column;
         }
@@ -118,12 +116,11 @@
         }
 
         .product-card p {
-            /* Минимальная высота для выравнивания кнопок и лучшей читаемости */
             min-height: 40px; 
             margin: 0 10px 15px;
             font-size: 0.95em; 
             opacity: 0.8;
-            flex-grow: 1; /* Описание занимает всё доступное место */
+            flex-grow: 1;
         }
 
         .product-card .price {
@@ -305,7 +302,7 @@
                  data-title="ИНДИВИДУАЛЬНЫЙ АПГРЕЙД (6-10 лет)" 
                  data-description="Индивидуальные уроки для детей 6-10 лет. Динамичные игры, песни и творческие задания, основанные на лучших мировых методиках для **Young Learners**. Погружение в язык в веселой форме!" 
                  data-price="1000 руб./урок"
-                 data-buy-link="mailto:lenochkacrim@mail.ru?subject=Запись на индивидуальные занятия (6-10 лет)"
+                 data-buy-link="https://t.me/Elena_English_4_kids"
                  data-images='["./images/image_1.png"]' 
             >
                 <img src="./images/image_1.png" alt="Младшие школьники" class="product-card-image"> 
@@ -320,7 +317,7 @@
                  data-title="ИНДИВИДУАЛЬНЫЙ BOOST (ПОДРОСТКИ)" 
                  data-description="Программа, разработанная специально для **teenagers**. Акцент на разговорную речь, грамматику в контексте, современные темы. Скучать не придется!" 
                  data-price="1200 руб./урок"
-                 data-buy-link="mailto:lenochkacrim@mail.ru?subject=Запись на индивидуальные занятия (Подростки)"
+                 data-buy-link="https://t.me/Elena_English_4_kids"
                  data-images='["./images/image_2.png"]' 
             >
                 <img src="./images/image_2.png" alt="Подростки" class="product-card-image"> 
@@ -335,7 +332,7 @@
                  data-title="ЛЕТНИЙ ИНТЕНСИВ: MEDIA-ПОГРУЖЕНИЕ" 
                  data-description="**Супер-интенсив для всех возрастов!** Изучаем английский через **популярные фильмы, сериалы и мультфильмы**. Идеальное сочетание развлечения и глубокой методической проработки лексики и грамматики. Лето с максимальной пользой!" 
                  data-price="8000 руб./курс"
-                 data-buy-link="mailto:lenochkacrim@mail.ru?subject=Запись на летний курс Media-Погружение"
+                 data-buy-link="https://t.me/Elena_English_4_kids"
                  data-images='["./images/image_3.png", "./images/image_4.png", "./images/image_5.png"]' 
             >
                 <img src="./images/image_3.png" alt="Курс по медиа" class="product-card-image">
@@ -389,17 +386,14 @@
             const description = card.dataset.description;
             const price = card.dataset.price;
             
-            // Получение ссылки на почту и изображений
-            const finalBuyLink = card.dataset.buyLink;
+            const finalBuyLink = card.dataset.buyLink; // Получаем ссылку на Телеграм
             const images = JSON.parse(card.dataset.images); 
 
-            // Заполнение модального окна
             modalTitle.textContent = title;
             modalDescription.innerHTML = description;
             modalPrice.textContent = price;
-            modalBuyLink.href = finalBuyLink; // Устанавливаем mailto: ссылку
+            modalBuyLink.href = finalBuyLink; // Устанавливаем ссылку на Телеграм
 
-            // Заполнение карусели
             carouselTrack.innerHTML = ''; 
             slideCount = images.length;
             currentSlide = 0;
@@ -435,25 +429,19 @@
         
         window.addEventListener('resize', updateCarousel);
 
-        // *** Обработчик событий для активации кнопок ***
         productCards.forEach(card => {
-            // Ищем кнопку внутри карточки
             const button = card.querySelector('.buy-button');
             
-            // 1. Обработка клика по кнопке
             button.addEventListener('click', (e) => {
                 e.preventDefault(); 
                 openModal(card); 
-                e.stopPropagation(); // Не даем событию распространиться на всю карточку
+                e.stopPropagation(); 
             });
 
-            // 2. Обработка клика по всей карточке (кроме самой кнопки)
             card.addEventListener('click', (e) => {
-                // Если клик произошел не по кнопке (благодаря e.stopPropagation() на кнопке)
                 openModal(card);
             });
         });
-        // ***************************************
 
         closeBtn.onclick = function() {
             modal.style.display = 'none';
