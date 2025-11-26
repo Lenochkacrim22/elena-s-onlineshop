@@ -6,7 +6,9 @@
     <title>Elena's Cyber Shop - Онлайн-Курсы</title>
     
     <style>
-        /* ... Стилизация (CSS) остается без изменений ... */
+        /* ================================================= */
+        /* === Стилизация на основе Неоновой Схемы (ИЗМЕНЕНИЯ ВНЕСЕНЫ ЗДЕСЬ) === */
+        /* ================================================= */
         :root {
             --neon-blue: #00ffff;
             --neon-purple: #9933ff;
@@ -53,8 +55,8 @@
         
         header p {
             color: var(--text-color);
-            opacity: 0.7;
-            font-size: 1.1em;
+            opacity: 0.8; /* Увеличил прозрачность */
+            font-size: 1.2em; /* Увеличил размер */
         }
 
         /* --- Стили для Витрины и Карточек --- */
@@ -74,8 +76,9 @@
         }
 
         .product-grid {
+            /* МИНИМАЛЬНАЯ ШИРИНА КАРТОЧКИ УВЕЛИЧЕНА ДЛЯ ЛУЧШЕГО ВИДА */
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
             gap: 30px;
         }
 
@@ -90,6 +93,9 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
             cursor: pointer;
             position: relative;
+            /* Flexbox для выравнивания содержимого по вертикали */
+            display: flex;
+            flex-direction: column;
         }
 
         .product-card:hover {
@@ -109,16 +115,20 @@
             color: var(--neon-blue);
             margin: 15px 10px 10px;
             text-transform: uppercase;
+            font-size: 1.1em; /* Увеличил размер */
         }
 
         .product-card p {
+            /* УСТАНАВЛИВАЕМ МИНИМАЛЬНУЮ ВЫСОТУ ДЛЯ ВЫРАВНИВАНИЯ КНОПОК */
+            min-height: 40px; 
             margin: 0 10px 15px;
-            font-size: 0.85em;
-            opacity: 0.7;
+            font-size: 0.95em; /* Увеличил размер */
+            opacity: 0.8;
+            flex-grow: 1; /* Чтобы описание занимало все доступное место */
         }
 
         .product-card .price {
-            font-size: 1.5em;
+            font-size: 1.8em; /* Увеличил размер */
             font-weight: bold;
             color: var(--button-hover);
             margin-bottom: 15px;
@@ -128,6 +138,10 @@
         }
 
         .buy-button {
+            /* Кнопка на карточке: Сделал ее блочным элементом, чтобы она занимала всю ширину */
+            display: block;
+            width: 90%; 
+            margin: 0 auto;
             background-color: var(--neon-blue);
             color: var(--dark-background);
             border: none;
@@ -137,6 +151,7 @@
             font-weight: bold;
             text-transform: uppercase;
             transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+            text-decoration: none; /* Убедимся, что нет подчеркивания, если будем использовать <a> */
         }
 
         .buy-button:hover {
@@ -145,7 +160,7 @@
             box-shadow: 0 0 10px var(--button-hover);
         }
 
-        /* --- Стили для Модального Окна --- */
+        /* --- Стили для Модального Окна (Без изменений) --- */
         .modal {
             display: none; 
             position: fixed;
@@ -293,9 +308,9 @@
                  data-description="Индивидуальные уроки для детей 6-10 лет. Динамичные игры, песни и творческие задания, основанные на лучших мировых методиках для **Young Learners**. Погружение в язык в веселой форме!" 
                  data-price="1000 руб./урок"
                  data-buy-link="mailto:lenochkacrim@mail.ru?subject=Запись на индивидуальные занятия (6-10 лет)"
-                 data-images='["./images/image_1.png"]' 
+                 data-images='["/images/image_1.png"]' 
             >
-                <img src="./images/image_1.png" alt="Младшие школьники" class="product-card-image"> 
+                <img src="/images/image_1.png" alt="Младшие школьники" class="product-card-image"> 
                 <h3>Индивидуальные Занятия (6-10 лет)</h3>
                 <p>Базовый курс английского с опорой на игру. Лучшие мировые практики для Young Learners.</p>
                 <div class="price">1000 руб./урок</div>
@@ -308,9 +323,9 @@
                  data-description="Программа, разработанная специально для **teenagers**. Акцент на разговорную речь, грамматику в контексте, современные темы. Скучать не придется!" 
                  data-price="1200 руб./урок"
                  data-buy-link="mailto:lenochkacrim@mail.ru?subject=Запись на индивидуальные занятия (Подростки)"
-                 data-images='["./images/image_2.png"]' 
+                 data-images='["/images/image_2.png"]' 
             >
-                <img src="./images/image_2.png" alt="Подростки" class="product-card-image"> 
+                <img src="/images/image_2.png" alt="Подростки" class="product-card-image"> 
                 <h3>Индивидуальные Занятия (Подростки)</h3>
                 <p>Акцент на реальное общение, современный сленг, грамматику и актуальные темы.</p> 
                 <div class="price">1200 руб./урок</div>
@@ -323,9 +338,9 @@
                  data-description="**Супер-интенсив для всех возрастов!** Изучаем английский через **популярные фильмы, сериалы и мультфильмы**. Идеальное сочетание развлечения и глубокой методической проработки лексики и грамматики. Лето с максимальной пользой!" 
                  data-price="8000 руб./курс"
                  data-buy-link="mailto:lenochkacrim@mail.ru?subject=Запись на летний курс Media-Погружение"
-                 data-images='["./images/image_3.png", "./images/image_4.png", "./images/image_5.png"]' 
+                 data-images='["/images/image_3.png", "/images/image_4.png", "/images/image_5.png"]' 
             >
-                <img src="./images/image_3.png" alt="Курс по медиа" class="product-card-image">
+                <img src="/images/image_3.png" alt="Курс по медиа" class="product-card-image">
                 <h3>Лето: Английский по Media (Фильмы/Мультфильмы)</h3>
                 <p>Разговорная практика, лексика и грамматика на основе популярных фильмов, сериалов и мультиков.</p>
                 <div class="price">8000 руб./курс</div>
@@ -342,7 +357,7 @@
 
             <div class="carousel-container">
                 <div id="carouselTrack" class="carousel-track">
-                    </div>
+                </div>
                 <button class="carousel-prev">❮</button>
                 <button class="carousel-next">❯</button>
             </div>
@@ -363,7 +378,7 @@
         const modalTitle = document.getElementById('modalTitle');
         const modalDescription = document.getElementById('modalDescription');
         const modalPrice = document.getElementById('modalPrice');
-        const modalBuyLink = document.getElementById('modalBuyLink');
+        const modalBuyLink = document.getElementById('modalBuyLink'); // Ссылка на почту
         const carouselTrack = document.getElementById('carouselTrack');
         const prevButton = document.querySelector('.carousel-prev');
         const nextButton = document.querySelector('.carousel-next');
@@ -376,23 +391,29 @@
             const title = card.dataset.title;
             const description = card.dataset.description;
             const price = card.dataset.price;
-            const buyLink = card.dataset.buyLink;
+            const buyLink = card.dataset.buy-link; // <--- В JS нужно использовать camelCase: card.dataset.buyLink
             const images = JSON.parse(card.dataset.images); 
+            
+            // ИСПРАВЛЕНИЕ: Это критический момент! В HTML атрибут data-buy-link, в JS доступ через data.buyLink
+            const finalBuyLink = card.dataset.buyLink; 
 
             modalTitle.textContent = title;
             modalDescription.innerHTML = description;
             modalPrice.textContent = price;
-            modalBuyLink.href = buyLink;
+            modalBuyLink.href = finalBuyLink; // <--- Вот где устанавливается mailto:
 
             carouselTrack.innerHTML = ''; 
             slideCount = images.length;
             currentSlide = 0;
+            // ... остальной код карусели
+            
+            // ...
 
             images.forEach(src => {
                 const slide = document.createElement('div');
                 slide.className = 'carousel-slide';
                 const img = document.createElement('img');
-                img.src = src; // Используем обновленный путь
+                img.src = src; 
                 img.alt = title + ' изображение';
                 slide.appendChild(img);
                 carouselTrack.appendChild(slide);
@@ -423,8 +444,17 @@
 
         // Обработчики событий (Кнопки)
         productCards.forEach(card => {
+            // Обработчик теперь вызывается при клике на ЛЮБУЮ область карточки
             card.addEventListener('click', (e) => {
-                 openModal(card);
+                 // Если клик был по самой кнопке, открываем почту сразу (этот код пока не нужен, так как клик открывает модальное окно)
+                 
+                 // Если клик не был по кнопке 'Подробнее/Купить'
+                 if (!e.target.classList.contains('buy-button')) {
+                    openModal(card);
+                 } else {
+                     // Если клик был по кнопке, открываем модальное окно
+                    openModal(card);
+                 }
             }); 
         });
 
