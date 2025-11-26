@@ -7,7 +7,7 @@
     
     <style>
         /* ================================================= */
-        /* === Стилизация на основе Неоновой Схемы (ИЗМЕНЕНИЯ ВНЕСЕНЫ ЗДЕСЬ) === */
+        /* === Стилизация (CSS) === */
         /* ================================================= */
         :root {
             --neon-blue: #00ffff;
@@ -55,11 +55,10 @@
         
         header p {
             color: var(--text-color);
-            opacity: 0.8; /* Увеличил прозрачность */
-            font-size: 1.2em; /* Увеличил размер */
+            opacity: 0.8;
+            font-size: 1.2em;
         }
 
-        /* --- Стили для Витрины и Карточек --- */
         .showcase {
             padding: 50px 20px;
             max-width: 1200px;
@@ -76,7 +75,7 @@
         }
 
         .product-grid {
-            /* МИНИМАЛЬНАЯ ШИРИНА КАРТОЧКИ УВЕЛИЧЕНА ДЛЯ ЛУЧШЕГО ВИДА */
+            /* Улучшенный грид для лучшего заполнения экрана */
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
             gap: 30px;
@@ -93,7 +92,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
             cursor: pointer;
             position: relative;
-            /* Flexbox для выравнивания содержимого по вертикали */
+            /* Flexbox для правильного выравнивания кнопок */
             display: flex;
             flex-direction: column;
         }
@@ -115,20 +114,20 @@
             color: var(--neon-blue);
             margin: 15px 10px 10px;
             text-transform: uppercase;
-            font-size: 1.1em; /* Увеличил размер */
+            font-size: 1.1em;
         }
 
         .product-card p {
-            /* УСТАНАВЛИВАЕМ МИНИМАЛЬНУЮ ВЫСОТУ ДЛЯ ВЫРАВНИВАНИЯ КНОПОК */
+            /* Минимальная высота для выравнивания кнопок и лучшей читаемости */
             min-height: 40px; 
             margin: 0 10px 15px;
-            font-size: 0.95em; /* Увеличил размер */
+            font-size: 0.95em; 
             opacity: 0.8;
-            flex-grow: 1; /* Чтобы описание занимало все доступное место */
+            flex-grow: 1; /* Описание занимает всё доступное место */
         }
 
         .product-card .price {
-            font-size: 1.8em; /* Увеличил размер */
+            font-size: 1.8em; 
             font-weight: bold;
             color: var(--button-hover);
             margin-bottom: 15px;
@@ -138,7 +137,6 @@
         }
 
         .buy-button {
-            /* Кнопка на карточке: Сделал ее блочным элементом, чтобы она занимала всю ширину */
             display: block;
             width: 90%; 
             margin: 0 auto;
@@ -151,7 +149,7 @@
             font-weight: bold;
             text-transform: uppercase;
             transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
-            text-decoration: none; /* Убедимся, что нет подчеркивания, если будем использовать <a> */
+            text-decoration: none;
         }
 
         .buy-button:hover {
@@ -160,7 +158,7 @@
             box-shadow: 0 0 10px var(--button-hover);
         }
 
-        /* --- Стили для Модального Окна (Без изменений) --- */
+        /* --- Стили для Модального Окна --- */
         .modal {
             display: none; 
             position: fixed;
@@ -308,9 +306,9 @@
                  data-description="Индивидуальные уроки для детей 6-10 лет. Динамичные игры, песни и творческие задания, основанные на лучших мировых методиках для **Young Learners**. Погружение в язык в веселой форме!" 
                  data-price="1000 руб./урок"
                  data-buy-link="mailto:lenochkacrim@mail.ru?subject=Запись на индивидуальные занятия (6-10 лет)"
-                 data-images='["/images/image_1.png"]' 
+                 data-images='["./images/image_1.png"]' 
             >
-                <img src="/images/image_1.png" alt="Младшие школьники" class="product-card-image"> 
+                <img src="./images/image_1.png" alt="Младшие школьники" class="product-card-image"> 
                 <h3>Индивидуальные Занятия (6-10 лет)</h3>
                 <p>Базовый курс английского с опорой на игру. Лучшие мировые практики для Young Learners.</p>
                 <div class="price">1000 руб./урок</div>
@@ -323,9 +321,9 @@
                  data-description="Программа, разработанная специально для **teenagers**. Акцент на разговорную речь, грамматику в контексте, современные темы. Скучать не придется!" 
                  data-price="1200 руб./урок"
                  data-buy-link="mailto:lenochkacrim@mail.ru?subject=Запись на индивидуальные занятия (Подростки)"
-                 data-images='["/images/image_2.png"]' 
+                 data-images='["./images/image_2.png"]' 
             >
-                <img src="/images/image_2.png" alt="Подростки" class="product-card-image"> 
+                <img src="./images/image_2.png" alt="Подростки" class="product-card-image"> 
                 <h3>Индивидуальные Занятия (Подростки)</h3>
                 <p>Акцент на реальное общение, современный сленг, грамматику и актуальные темы.</p> 
                 <div class="price">1200 руб./урок</div>
@@ -338,9 +336,9 @@
                  data-description="**Супер-интенсив для всех возрастов!** Изучаем английский через **популярные фильмы, сериалы и мультфильмы**. Идеальное сочетание развлечения и глубокой методической проработки лексики и грамматики. Лето с максимальной пользой!" 
                  data-price="8000 руб./курс"
                  data-buy-link="mailto:lenochkacrim@mail.ru?subject=Запись на летний курс Media-Погружение"
-                 data-images='["/images/image_3.png", "/images/image_4.png", "/images/image_5.png"]' 
+                 data-images='["./images/image_3.png", "./images/image_4.png", "./images/image_5.png"]' 
             >
-                <img src="/images/image_3.png" alt="Курс по медиа" class="product-card-image">
+                <img src="./images/image_3.png" alt="Курс по медиа" class="product-card-image">
                 <h3>Лето: Английский по Media (Фильмы/Мультфильмы)</h3>
                 <p>Разговорная практика, лексика и грамматика на основе популярных фильмов, сериалов и мультиков.</p>
                 <div class="price">8000 руб./курс</div>
@@ -378,7 +376,7 @@
         const modalTitle = document.getElementById('modalTitle');
         const modalDescription = document.getElementById('modalDescription');
         const modalPrice = document.getElementById('modalPrice');
-        const modalBuyLink = document.getElementById('modalBuyLink'); // Ссылка на почту
+        const modalBuyLink = document.getElementById('modalBuyLink');
         const carouselTrack = document.getElementById('carouselTrack');
         const prevButton = document.querySelector('.carousel-prev');
         const nextButton = document.querySelector('.carousel-next');
@@ -386,28 +384,25 @@
         let currentSlide = 0;
         let slideCount = 0;
 
-        // Функция для показа/заполнения модального окна
         function openModal(card) {
             const title = card.dataset.title;
             const description = card.dataset.description;
             const price = card.dataset.price;
-            const buyLink = card.dataset.buy-link; // <--- В JS нужно использовать camelCase: card.dataset.buyLink
-            const images = JSON.parse(card.dataset.images); 
             
-            // ИСПРАВЛЕНИЕ: Это критический момент! В HTML атрибут data-buy-link, в JS доступ через data.buyLink
-            const finalBuyLink = card.dataset.buyLink; 
+            // Получение ссылки на почту и изображений
+            const finalBuyLink = card.dataset.buyLink;
+            const images = JSON.parse(card.dataset.images); 
 
+            // Заполнение модального окна
             modalTitle.textContent = title;
             modalDescription.innerHTML = description;
             modalPrice.textContent = price;
-            modalBuyLink.href = finalBuyLink; // <--- Вот где устанавливается mailto:
+            modalBuyLink.href = finalBuyLink; // Устанавливаем mailto: ссылку
 
+            // Заполнение карусели
             carouselTrack.innerHTML = ''; 
             slideCount = images.length;
             currentSlide = 0;
-            // ... остальной код карусели
-            
-            // ...
 
             images.forEach(src => {
                 const slide = document.createElement('div');
@@ -423,7 +418,6 @@
             modal.style.display = 'block'; 
         }
 
-        // Логика Карусели
         function updateCarousel() {
             const trackWidth = carouselTrack.offsetWidth;
             carouselTrack.style.transform = `translateX(-${currentSlide * trackWidth}px)`;
@@ -441,29 +435,30 @@
         
         window.addEventListener('resize', updateCarousel);
 
-
-        // Обработчики событий (Кнопки)
+        // *** Обработчик событий для активации кнопок ***
         productCards.forEach(card => {
-            // Обработчик теперь вызывается при клике на ЛЮБУЮ область карточки
-            card.addEventListener('click', (e) => {
-                 // Если клик был по самой кнопке, открываем почту сразу (этот код пока не нужен, так как клик открывает модальное окно)
-                 
-                 // Если клик не был по кнопке 'Подробнее/Купить'
-                 if (!e.target.classList.contains('buy-button')) {
-                    openModal(card);
-                 } else {
-                     // Если клик был по кнопке, открываем модальное окно
-                    openModal(card);
-                 }
-            }); 
-        });
+            // Ищем кнопку внутри карточки
+            const button = card.querySelector('.buy-button');
+            
+            // 1. Обработка клика по кнопке
+            button.addEventListener('click', (e) => {
+                e.preventDefault(); 
+                openModal(card); 
+                e.stopPropagation(); // Не даем событию распространиться на всю карточку
+            });
 
-        // Закрытие по кнопке X
+            // 2. Обработка клика по всей карточке (кроме самой кнопки)
+            card.addEventListener('click', (e) => {
+                // Если клик произошел не по кнопке (благодаря e.stopPropagation() на кнопке)
+                openModal(card);
+            });
+        });
+        // ***************************************
+
         closeBtn.onclick = function() {
             modal.style.display = 'none';
         }
 
-        // Закрытие по клику вне модального окна
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = 'none';
