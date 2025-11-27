@@ -1,200 +1,468 @@
-<style>
-    /* ================================================= */
-    /* === Стилизация (CSS) - УВЕЛИЧЕННЫЙ РАЗМЕР === */
-    /* ================================================= */
-    :root {
-        --neon-blue: #00ffff;
-        --neon-purple: #9933ff;
-        --dark-background: #100020;
-        --text-color: #f0f0f0;
-        --card-background: #180036;
-        --button-hover: #ff66ff;
-        --grid-lines: rgba(0, 255, 255, 0.1);
-        --glow-strong: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-purple);
-        --glow-soft: 0 0 5px var(--neon-blue);
-    }
-
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        font-family: 'Consolas', monospace, sans-serif;
-    }
-
-    body {
-        background-color: var(--dark-background);
-        color: var(--text-color);
-        line-height: 1.6;
-        background-image: linear-gradient(to right, var(--grid-lines) 1px, transparent 1px),
-                          linear-gradient(to bottom, var(--grid-lines) 1px, transparent 1px);
-        background-size: 20px 20px;
-        /* Увеличение базового размера шрифта для всего тела */
-        font-size: 17px; 
-    }
-
-    header {
-        background-color: var(--card-background);
-        padding: 45px 20px; /* Немного больше отступов */
-        text-align: center;
-        border-bottom: 3px solid var(--neon-blue);
-        box-shadow: var(--glow-strong);
-    }
-
-    header h1 {
-        font-size: 3.5em; /* Увеличен заголовок */
-        color: var(--neon-blue);
-        text-shadow: var(--glow-strong);
-        letter-spacing: 5px;
-        margin-bottom: 5px;
-    }
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elena's Cyber Shop - Онлайн-Курсы</title>
     
-    header p {
-        color: var(--text-color);
-        opacity: 0.9; 
-        font-size: 1.3em; /* Увеличен подзаголовок */
-    }
+    <style>
+        /* ================================================= */
+        /* === Стилизация (CSS) - УЛУЧШЕННАЯ ЧИТАЕМОСТЬ === */
+        /* ================================================= */
+        :root {
+            --neon-blue: #00ffff;
+            --neon-purple: #9933ff;
+            --dark-background: #100020;
+            --text-color: #f0f0f0;
+            --card-background: #180036;
+            --button-hover: #ff66ff;
+            --grid-lines: rgba(0, 255, 255, 0.1);
+            --glow-strong: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-purple);
+            --glow-soft: 0 0 5px var(--neon-blue);
+        }
 
-    .showcase {
-        padding: 50px 20px;
-        max-width: 1300px; /* Увеличим максимальную ширину витрины */
-        margin: 0 auto;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Consolas', monospace, sans-serif;
+        }
 
-    .showcase h2 {
-        text-align: center;
-        color: var(--neon-purple);
-        margin-bottom: 50px; /* Увеличен отступ */
-        text-shadow: 0 0 10px var(--neon-purple);
-        border-bottom: 1px dashed var(--neon-blue);
-        padding-bottom: 15px;
-        font-size: 1.8em; /* Увеличен заголовок витрины */
-    }
+        body {
+            background-color: var(--dark-background);
+            color: var(--text-color);
+            line-height: 1.6;
+            background-image: linear-gradient(to right, var(--grid-lines) 1px, transparent 1px),
+                              linear-gradient(to bottom, var(--grid-lines) 1px, transparent 1px);
+            background-size: 20px 20px;
+            /* Увеличение базового размера шрифта для всего тела */
+            font-size: 17px; 
+        }
 
-    .product-grid {
-        /* Уменьшаем минимальный размер карточки, чтобы они стали шире на больших экранах */
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-        gap: 35px; /* Увеличен зазор */
-    }
+        header {
+            background-color: var(--card-background);
+            padding: 45px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--neon-blue);
+            box-shadow: var(--glow-strong);
+        }
 
-    .product-card {
-        background-color: var(--card-background);
-        border: 1px solid var(--neon-purple);
-        border-radius: 5px;
-        overflow: hidden;
-        text-align: center;
-        padding-bottom: 25px; /* Увеличен отступ снизу */
-        transition: transform 0.3s, box-shadow 0.3s;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-        cursor: pointer;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-    }
+        header h1 {
+            font-size: 3.5em; /* Увеличен заголовок */
+            color: var(--neon-blue);
+            text-shadow: var(--glow-strong);
+            letter-spacing: 5px;
+            margin-bottom: 5px;
+        }
+        
+        header p {
+            color: var(--text-color);
+            opacity: 0.9; 
+            font-size: 1.3em; /* Увеличен подзаголовок */
+        }
 
-    .product-card:hover {
-        transform: translateY(-8px);
-        box-shadow: var(--glow-strong);
-        border-color: var(--neon-blue);
-    }
+        .showcase {
+            padding: 50px 20px;
+            max-width: 1300px; /* Увеличим максимальную ширину витрины */
+            margin: 0 auto;
+        }
 
-    .product-card-image {
-        width: 100%;
-        height: 220px; /* Увеличим высоту картинки */
-        object-fit: cover;
-        border-bottom: 2px solid var(--neon-purple);
-    }
-    
-    .product-card h3 {
-        color: var(--neon-blue);
-        margin: 18px 12px 12px;
-        text-transform: uppercase;
-        font-size: 1.25em; /* Увеличен заголовок карточки */
-    }
+        .showcase h2 {
+            text-align: center;
+            color: var(--neon-purple);
+            margin-bottom: 50px;
+            text-shadow: 0 0 10px var(--neon-purple);
+            border-bottom: 1px dashed var(--neon-blue);
+            padding-bottom: 15px;
+            font-size: 1.8em; /* Увеличен заголовок витрины */
+        }
 
-    .product-card p {
-        min-height: 45px; /* Небольшое увеличение для выравнивания */
-        margin: 0 12px 18px;
-        font-size: 1.05em; /* Увеличен текст описания */
-        opacity: 0.8;
-        flex-grow: 1;
-    }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 35px; /* Увеличен зазор */
+        }
 
-    .product-card .price {
-        font-size: 2.2em; /* Значительно увеличен размер цены */
-        font-weight: bold;
-        color: var(--button-hover);
-        margin-bottom: 18px;
-        text-shadow: 0 0 5px var(--button-hover);
-        border-top: 1px dashed var(--grid-lines);
-        padding-top: 12px;
-    }
+        .product-card {
+            background-color: var(--card-background);
+            border: 1px solid var(--neon-purple);
+            border-radius: 5px;
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
 
-    .buy-button {
-        display: block;
-        width: 85%; /* Увеличим ширину кнопки */
-        margin: 0 auto;
-        background-color: var(--neon-blue);
-        color: var(--dark-background);
-        border: none;
-        padding: 15px 30px; /* Увеличен размер кнопки */
-        border-radius: 3px;
-        cursor: pointer;
-        font-weight: bold;
-        text-transform: uppercase;
-        font-size: 1.1em; /* Увеличен шрифт кнопки */
-        transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
-        text-decoration: none;
-    }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--glow-strong);
+            border-color: var(--neon-blue);
+        }
 
-    .buy-button:hover {
-        background-color: var(--button-hover);
-        color: var(--text-color);
-        box-shadow: 0 0 10px var(--button-hover);
-    }
+        .product-card-image {
+            width: 100%;
+            height: 220px; /* Увеличим высоту картинки */
+            object-fit: cover;
+            border-bottom: 2px solid var(--neon-purple);
+        }
+        
+        .product-card h3 {
+            color: var(--neon-blue);
+            margin: 18px 12px 12px;
+            text-transform: uppercase;
+            font-size: 1.25em; /* Увеличен заголовок карточки */
+        }
 
-    /* --- Стили для Модального Окна (Корректировка размеров) --- */
-    
-    .modal-content {
-        /* ... стили ... */
-        padding: 40px; /* Увеличен внутренний отступ */
-        /* ... стили ... */
-    }
-    
-    .modal-content h2 {
-        font-size: 1.8em; /* Увеличен заголовок в модальном окне */
-        margin-bottom: 25px;
-    }
+        .product-card p {
+            min-height: 45px; 
+            margin: 0 12px 18px;
+            font-size: 1.05em; /* Увеличен текст описания */
+            opacity: 0.8;
+            flex-grow: 1;
+        }
 
-    .carousel-slide {
-        min-width: 100%;
-        height: 400px; /* Увеличим высоту карусели */
-    }
+        .product-card .price {
+            font-size: 2.2em; /* Значительно увеличен размер цены */
+            font-weight: bold;
+            color: var(--button-hover);
+            margin-bottom: 18px;
+            text-shadow: 0 0 5px var(--button-hover);
+            border-top: 1px dashed var(--grid-lines);
+            padding-top: 12px;
+        }
 
-    .modal-description {
-        margin-top: 25px;
-        margin-bottom: 20px;
-        font-size: 1.25em; /* Увеличен текст в модальном окне */
-        opacity: 0.9;
-        padding: 0 10px;
-    }
+        .buy-button {
+            display: block;
+            width: 85%; /* Увеличим ширину кнопки */
+            margin: 0 auto;
+            background-color: var(--neon-blue);
+            color: var(--dark-background);
+            border: none;
+            padding: 15px 30px; /* Увеличен размер кнопки */
+            border-radius: 3px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 1.1em; /* Увеличен шрифт кнопки */
+            transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+            text-decoration: none;
+        }
 
-    .modal-price {
-        font-size: 2.4em; /* Увеличена цена в модальном окне */
-        margin-bottom: 30px;
-    }
+        .buy-button:hover {
+            background-color: var(--button-hover);
+            color: var(--text-color);
+            box-shadow: 0 0 10px var(--button-hover);
+        }
 
-    .modal-buy-button {
-        padding: 18px; /* Увеличен размер кнопки в модальном окне */
-        font-size: 1.3em; /* Увеличен шрифт кнопки в модальном окне */
-    }
+        /* --- Стили для Модального Окна (Корректировка размеров) --- */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 100; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9); 
+            padding-top: 60px;
+        }
 
-    @media (max-width: 600px) {
-        header h1 { font-size: 2.5em; }
-        .modal-content { margin: 10% auto; padding: 25px; }
-        .carousel-slide { height: 300px; }
-        .modal-buy-button { width: 100%; }
-        .product-card h3 { font-size: 1.1em; }
-        .product-card p { font-size: 1em; }
-    }
-</style>
+        .modal-content {
+            background-color: var(--card-background);
+            margin: 5% auto;
+            padding: 40px; /* Увеличен внутренний отступ */
+            border: 3px solid var(--neon-blue);
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: var(--glow-strong);
+            position: relative;
+        }
+        
+        .close-button {
+            color: var(--neon-blue);
+            float: right;
+            font-size: 35px;
+            font-weight: bold;
+            transition: color 0.3s;
+            line-height: 1;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: var(--button-hover);
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .modal-content h2 {
+            color: var(--neon-blue);
+            margin-bottom: 25px;
+            text-align: center;
+            text-shadow: var(--glow-soft);
+            font-size: 1.8em; /* Увеличен заголовок в модальном окне */
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 1px solid var(--neon-purple);
+            border-radius: 5px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 400px; /* Увеличим высоту карусели */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-prev, .carousel-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 1.5em;
+            transition: background 0.3s;
+        }
+
+        .carousel-prev:hover, .carousel-next:hover {
+            background: var(--neon-blue);
+        }
+
+        .carousel-prev { left: 0; border-radius: 0 5px 5px 0; }
+        .carousel-next { right: 0; border-radius: 5px 0 0 5px; }
+
+        .modal-description {
+            margin-top: 25px;
+            margin-bottom: 20px;
+            font-size: 1.25em; /* Увеличен текст в модальном окне */
+            opacity: 0.9;
+            padding: 0 10px;
+        }
+
+        .modal-price {
+            font-size: 2.4em; /* Увеличена цена в модальном окне */
+            font-weight: bold;
+            color: var(--button-hover);
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 8px var(--button-hover);
+        }
+
+        .modal-buy-button {
+            display: block;
+            width: 80%;
+            margin: 0 auto;
+            padding: 18px; /* Увеличен размер кнопки в модальном окне */
+            font-size: 1.3em; /* Увеличен шрифт кнопки в модальном окне */
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 2.5em; }
+            .modal-content { margin: 10% auto; padding: 25px; }
+            .carousel-slide { height: 300px; }
+            .modal-buy-button { width: 100%; }
+            .product-card h3 { font-size: 1.1em; }
+            .product-card p { font-size: 1em; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ELENA'S CYBER SHOP</h1>
+        <p>Ваш портал к увлекательному и методически продуманному онлайн-английскому.</p>
+    </header>
+
+    <section class="showcase">
+        <h2>:: СИСТЕМНЫЙ КАТАЛОГ КУРСОВ ::</h2>
+        <div class="product-grid">
+
+            <div class="product-card" 
+                 data-product-id="1" 
+                 data-title="ИНДИВИДУАЛЬНЫЙ АПГРЕЙД (6-10 лет)" 
+                 data-description="Индивидуальные уроки для детей 6-10 лет. Динамичные игры, песни и творческие задания, основанные на лучших мировых методиках для **Young Learners**. Погружение в язык в веселой форме!" 
+                 data-price="1000 руб./урок"
+                 data-buy-link="https://t.me/Elena_English_4_kids"
+                 data-images='["./images/image_1.png"]' 
+            >
+                <img src="./images/image_1.png" alt="Младшие школьники" class="product-card-image"> 
+                <h3>Индивидуальные Занятия (6-10 лет)</h3>
+                <p>Базовый курс английского с опорой на игру. Лучшие мировые практики для Young Learners.</p>
+                <div class="price">1000 руб./урок</div>
+                <button class="buy-button">Подробнее / Купить</button>
+            </div>
+
+            <div class="product-card" 
+                 data-product-id="2" 
+                 data-title="ИНДИВИДУАЛЬНЫЙ BOOST (ПОДРОСТКИ)" 
+                 data-description="Программа, разработанная специально для **teenagers**. Акцент на разговорную речь, грамматику в контексте, современные темы. Скучать не придется!" 
+                 data-price="1200 руб./урок"
+                 data-buy-link="https://t.me/Elena_English_4_kids"
+                 data-images='["./images/image_2.png"]' 
+            >
+                <img src="./images/image_2.png" alt="Подростки" class="product-card-image"> 
+                <h3>Индивидуальные Занятия (Подростки)</h3>
+                <p>Акцент на реальное общение, современный сленг, грамматику и актуальные темы.</p> 
+                <div class="price">1200 руб./урок</div>
+                <button class="buy-button">Подробнее / Купить</button>
+            </div>
+
+            <div class="product-card" 
+                 data-product-id="3" 
+                 data-title="ЛЕТНИЙ ИНТЕНСИВ: MEDIA-ПОГРУЖЕНИЕ" 
+                 data-description="**Супер-интенсив для всех возрастов!** Изучаем английский через **популярные фильмы, сериалы и мультфильмы**. Идеальное сочетание развлечения и глубокой методической проработки лексики и грамматики. Лето с максимальной пользой!" 
+                 data-price="8000 руб./курс"
+                 data-buy-link="https://t.me/Elena_English_4_kids"
+                 data-images='["./images/image_3.png", "./images/image_5.png"]' 
+            >
+                <img src="./images/image_3.png" alt="Курс по медиа" class="product-card-image">
+                <h3>Лето: Английский по Media (Фильмы/Мультфильмы)</h3>
+                <p>Разговорная практика, лексика и грамматика на основе популярных фильмов, сериалов и мультиков.</p>
+                <div class="price">8000 руб./курс</div>
+                <button class="buy-button">Подробнее / Купить</button>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalTitle">Название Товара</h2>
+
+            <div class="carousel-container">
+                <div id="carouselTrack" class="carousel-track">
+                </div>
+                <button class="carousel-prev">❮</button>
+                <button class="carousel-next">❯</button>
+            </div>
+            
+            <p class="modal-description" id="modalDescription">Подробное описание товара...</p>
+            
+            <div class="modal-price" id="modalPrice">Цена: 0000 руб.</div>
+
+            <a href="#" id="modalBuyLink" target="_blank" class="buy-button modal-buy-button">ЗАПИСАТЬСЯ НА КУРС</a>
+        </div>
+    </div>
+
+
+    <script>
+        const modal = document.getElementById('productModal');
+        const closeBtn = document.getElementsByClassName('close-button')[0];
+        const productCards = document.querySelectorAll('.product-card');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalPrice = document.getElementById('modalPrice');
+        const modalBuyLink = document.getElementById('modalBuyLink');
+        const carouselTrack = document.getElementById('carouselTrack');
+        const prevButton = document.querySelector('.carousel-prev');
+        const nextButton = document.querySelector('.carousel-next');
+
+        let currentSlide = 0;
+        let slideCount = 0;
+
+        function openModal(card) {
+            const title = card.dataset.title;
+            const description = card.dataset.description;
+            const price = card.dataset.price;
+            
+            const finalBuyLink = card.dataset.buyLink;
+            // Важно: парсим строку JSON с изображениями в реальный массив JS
+            const images = JSON.parse(card.dataset.images); 
+
+            modalTitle.textContent = title;
+            modalDescription.innerHTML = description;
+            modalPrice.textContent = price;
+            modalBuyLink.href = finalBuyLink;
+
+            carouselTrack.innerHTML = ''; 
+            slideCount = images.length;
+            currentSlide = 0;
+
+            images.forEach(src => {
+                const slide = document.createElement('div');
+                slide.className = 'carousel-slide';
+                const img = document.createElement('img');
+                img.src = src; 
+                img.alt = title + ' изображение';
+                slide.appendChild(img);
+                carouselTrack.appendChild(slide);
+            });
+
+            updateCarousel(); 
+            modal.style.display = 'block'; 
+        }
+
+        function updateCarousel() {
+            const trackWidth = carouselTrack.offsetWidth;
+            carouselTrack.style.transform = `translateX(-${currentSlide * trackWidth}px)`;
+        }
+
+        nextButton.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % slideCount;
+            updateCarousel();
+        });
+
+        prevButton.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+            updateCarousel();
+        });
+        
+        window.addEventListener('resize', updateCarousel);
+
+        // Обработчик событий для активации кнопок
+        productCards.forEach(card => {
+            const button = card.querySelector('.buy-button');
+            
+            // 1. Клик по кнопке (важно: e.stopPropagation() предотвращает двойное срабатывание)
+            button.addEventListener('click', (e) => {
+                e.preventDefault(); 
+                openModal(card); 
+                e.stopPropagation(); 
+            });
+
+            // 2. Клик по всей карточке
+            card.addEventListener('click', (e) => {
+                openModal(card);
+            });
+        });
+
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
